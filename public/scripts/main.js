@@ -1,2 +1,2 @@
-var name = 'Nuzair Ibrahim';
+var name = 'Nuzair';
 document.write('Hey ' + name + '!');
