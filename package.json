@@ -8,7 +8,8 @@
   },
   "author": "Nuzair",
   "license": "ISC",
-  "dependencies": {
-    "gulp": "^3.9.1"
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^3.0.1"
   }
 }
