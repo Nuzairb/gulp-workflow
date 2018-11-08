@@ -42,7 +42,9 @@ gulp.task('styles', function() {
         }))
         .pipe(sourcemaps.init())
         .pipe(autoprefixer())
-        .pipe(sass())
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(DIST_PATH))
         .pipe(livereload());
