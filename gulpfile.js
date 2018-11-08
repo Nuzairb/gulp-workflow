@@ -54,43 +54,43 @@ var IMAGES_PATH = 'public/images/**/*.{png,jpeg,jpg,svg,gif}';
 // 		.pipe(livereload());
 // });
 
-// // Styles For SCSS
-// gulp.task('styles', function () {
-// 	console.log('starting styles task');
-// 	return gulp.src('public/scss/styles.scss')
-// 		.pipe(plumber(function (err) {
-// 			console.log('Styles Task Error');
-// 			console.log(err);
-// 			this.emit('end');
-// 		}))
-// 		.pipe(sourcemaps.init())
-// 		.pipe(autoprefixer())
-// 		.pipe(sass({
-// 			outputStyle: 'compressed'
-// 		}))
-// 		.pipe(sourcemaps.write())
-// 		.pipe(gulp.dest(DIST_PATH))
-// 		.pipe(livereload());
-// });
-
-// Styles For LESS
+// Styles For SCSS
 gulp.task('styles', function() {
     console.log('starting styles task');
-    return gulp.src('public/less/styles.less')
+    return gulp.src('public/scss/styles.scss')
         .pipe(plumber(function(err) {
             console.log('Styles Task Error');
             console.log(err);
             this.emit('end');
         }))
         .pipe(sourcemaps.init())
-        .pipe(less({
-            plugins: [lessAutoprefix]
+        .pipe(autoprefixer())
+        .pipe(sass({
+            outputStyle: 'compressed'
         }))
-        .pipe(minifyCss())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(DIST_PATH))
         .pipe(livereload());
 });
+
+// Styles For LESS
+// gulp.task('styles', function() {
+//     console.log('starting styles task');
+//     return gulp.src('public/less/styles.less')
+//         .pipe(plumber(function(err) {
+//             console.log('Styles Task Error');
+//             console.log(err);
+//             this.emit('end');
+//         }))
+//         .pipe(sourcemaps.init())
+//         .pipe(less({
+//             plugins: [lessAutoprefix]
+//         }))
+//         .pipe(minifyCss())
+//         .pipe(sourcemaps.write())
+//         .pipe(gulp.dest(DIST_PATH))
+//         .pipe(livereload());
+// });
 
 // Scripts
 gulp.task('scripts', function() {
@@ -165,8 +165,8 @@ gulp.task('watch', ['default'], function() {
     require('./server.js');
     livereload.listen();
     gulp.watch(SCRIPTS_PATH, ['scripts']);
-    // gulp.watch(CSS_PATH, ['styles']);
-    // gulp.watch('public/scss/**/*.scss', ['styles']);
-    gulp.watch('public/less/**/*.less', ['styles']);
+    //gulp.watch(CSS_PATH, ['styles']);
+    gulp.watch('public/scss/**/*.scss', ['styles']);
+    //gulp.watch('public/less/**/*.less', ['styles']);
     gulp.watch(TEMPLATES_PATH, ['templates']);
 });
