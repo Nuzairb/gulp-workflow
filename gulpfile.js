@@ -9,6 +9,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var sass = require('gulp-sass');
 var babel = require('gulp-babel');
 var del = require('del');
+var zip = require('gulp-zip');
 
 // Less plugins
 var less = require('gulp-less');
@@ -152,6 +153,12 @@ gulp.task('clean', function() {
 gulp.task('default', ['clean', 'images', 'templates', 'styles', 'scripts'], function() {
     console.log('Starting default task');
 });
+
+gulp.task('export', function() {
+    return gulp.src('public/**/*')
+        .pipe(zip('website.zip'))
+        .pipe(gulp.dest('./'));
+})
 
 gulp.task('watch', ['default'], function() {
     console.log('Starting watch task');
