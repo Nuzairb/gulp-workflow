@@ -34,7 +34,7 @@ var CSS_PATH = 'public/css/**/*.css';
 // Styles Scss 
 gulp.task('styles', function() {
     console.log('starting styles task');
-    return gulp.src('public/scss/style.scss')
+    return gulp.src('public/scss/styles.scss')
         .pipe(plumber(function(err) {
             console.log('Styles Task Error');
             console.log(err);
@@ -75,5 +75,6 @@ gulp.task('watch', function() {
     require('./server.js');
     livereload.listen();
     gulp.watch(SCRIPTS_PATH, ['scripts']);
-    gulp.watch(CSS_PATH, ['styles']);
+    // gulp.watch(CSS_PATH, ['styles']);
+    gulp.watch('public/scss/**/*.scss', ['styles']);
 });
