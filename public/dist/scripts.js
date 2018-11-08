@@ -1,2 +1,3 @@
-var name="Nuzair";document.write("Hey "+name+"!");
+var name="Nuzair Ib";document.write("Hey "+name+"!");
 for(var max=10,i=0;i<max;i++)console.log(i);
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4uanMiLCJzZWNvbmRhcnktc2NyaXB0cy5qcyJdLCJuYW1lcyI6WyJuYW1lIiwiZG9jdW1lbnQiLCJ3cml0ZSIsIm1heCIsImkiLCJjb25zb2xlIiwibG9nIl0sIm1hcHBpbmdzIjoiQUFBQSxJQUFJQSxLQUFPLFlBQ1hDLFNBQVNDLE1BQU0sT0FBU0YsS0FBTztBQ0MvQixJQUZBLElBQUlHLElBQU0sR0FFRkMsRUFBSSxFQUFHQSxFQUFJRCxJQUFLQyxJQUN0QkMsUUFBUUMsSUFBSUYiLCJmaWxlIjoic2NyaXB0cy5qcyIsInNvdXJjZXNDb250ZW50IjpbInZhciBuYW1lID0gJ051emFpciBJYic7XG5kb2N1bWVudC53cml0ZSgnSGV5ICcgKyBuYW1lICsgJyEnKTsiLCJ2YXIgbWF4ID0gMTA7XG5cbmZvcih2YXIgaSA9IDA7IGkgPCBtYXg7IGkrKykge1xuICBjb25zb2xlLmxvZyhpKTtcbn1cbiJdfQ==

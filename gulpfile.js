@@ -82,8 +82,15 @@ gulp.task('scripts', function() {
     console.log('starting scripts task');
 
     return gulp.src(SCRIPTS_PATH)
+        .pipe(plumber(function(err) {
+            console.log('Scripts Task Error');
+            console.log(err);
+            this.emit('end');
+        }))
+        .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(concat('scripts.js'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(DIST_PATH))
         .pipe(livereload());
 });
@@ -93,22 +100,22 @@ gulp.task('images', function() {
     console.log('starting images task');
 });
 
-gulp.task('templates', function() {
-    return gulp.src(TEMPLATES_PATH)
-        .pipe(handlebars({
-            handlebars: handlebarsLib
-        }))
-        .pipe(wrap('Handlebars.template(<%= contents %>)'))
-        .pipe(declare({
-            namespace: 'templates',
-            noRedeclare: true
-        }))
-        .pipe(concat('templates.js'))
-        .pipe(gulp.dest(DIST_PATH))
-        .pipe(livereload());
-});
+// gulp.task('templates', function() {
+//     return gulp.src(TEMPLATES_PATH)
+//         .pipe(handlebars({
+//             handlebars: handlebarsLib
+//         }))
+//         .pipe(wrap('Handlebars.template(<%= contents %>)'))
+//         .pipe(declare({
+//             namespace: 'templates',
+//             noRedeclare: true
+//         }))
+//         .pipe(concat('templates.js'))
+//         .pipe(gulp.dest(DIST_PATH))
+//         .pipe(livereload());
+// });
 
-gulp.task('default', ['images', 'templates', 'styles', 'scripts'], function() {
+gulp.task('default', ['images', 'styles', 'scripts'], function() {
     console.log('Starting default task');
 });
 
